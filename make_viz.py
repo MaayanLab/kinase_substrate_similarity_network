@@ -22,11 +22,8 @@ def make_viz(kinase_dict):
   net     = deepcopy(Network())
 
   # load matrix tsv file
-  tmp_net.load_file('kinase_network_based_on_substrates.txt')
+  tmp_net.load_file('primary_data/kinase_network_based_on_substrates.txt')
   # print(tmp_net.dat['mat'].shape)
-
-  # # tmp_net.load_file('human_adj_mat.txt')
-  # tmp_net.filter_threshold('col', threshold=1.0, num_occur=5)
 
   tmp_df = tmp_net.dat_to_df()
 
@@ -72,7 +69,7 @@ def make_viz(kinase_dict):
   net.write_json_to_file('viz', 'json/mult_view.json', 'no-indent')
 
 def load_kinase_info():
-  f = open('Uniprot_kinases_processed.txt', 'r')
+  f = open('primary_data/Uniprot_kinases_processed.txt', 'r')
   lines = f.readlines()
   f.close()
 
